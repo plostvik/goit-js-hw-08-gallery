@@ -89,7 +89,7 @@ const renderGallery = function (images) {
     gallery.insertAdjacentHTML(
       'beforeend',
       `<li class="gallery__item">
-  <a class="gallery__link" href="${el.original}" data-index="${i}">
+  <a class="gallery__link" href="${el.original}">
     <img class="gallery__image"
       src="${el.preview}"
       data-source="${el.original}"
@@ -131,7 +131,6 @@ const onGalleryClick = event => {
 const onBackdropClick = event =>
   event.currentTarget === event.target ? closeModal() : '';
 const onBtnPress = event => {
-  console.log(event.target);
   if (event.code === 'Escape') {
     closeModal();
   } else if (event.code === 'ArrowLeft') {
@@ -139,7 +138,6 @@ const onBtnPress = event => {
     currentIndex < 0 ? (currentIndex = images.length - 1) : '';
     largeImage.src = images[currentIndex].original;
   } else if (event.code === 'ArrowRight') {
-    console.log(currentIndex);
     currentIndex += 1;
     currentIndex > images.length - 1 ? (currentIndex = 0) : '';
     largeImage.src = images[currentIndex].original;
